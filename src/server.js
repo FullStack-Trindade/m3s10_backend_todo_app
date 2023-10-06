@@ -49,8 +49,14 @@ const todos = [
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const express = require("express");
+const cors = require("cors");
 const server = express();
 
+server.use(
+  cors({
+    origin: "*",
+  })
+);
 server.use(express.json());
 
 server.get("/", (request, response) => {
